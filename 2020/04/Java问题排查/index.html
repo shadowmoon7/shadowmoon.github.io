@@ -15,13 +15,13 @@
 <meta property="og:description" content="这是一些 java 程序查错的方法和经常使用的命令。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-10T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-08-29T07:03:58.318Z">
+<meta property="article:modified_time" content="2021-02-06T08:50:14.507Z">
 <meta property="article:author" content="行吟者">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
     <link rel="alternative" href="/atom.xml" title="The Road" type="application/atom+xml">
     <link rel="icon" href="/img/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="/./main.daba94.css">
+  <link rel="stylesheet" type="text/css" href="/./main.1488c6.css">
   <style type="text/css">
     #container.show {
       background: #4d4d4d;
@@ -181,6 +181,90 @@
 <p>c. 不断创建线程或者不断进行网络连接，优化代码。</p>
 </li>
 </ol>
+<h2 id="工具"><a class="markdownIt-Anchor" href="#工具"></a> 工具</h2>
+<h3 id="jdk-自带工具"><a class="markdownIt-Anchor" href="#jdk-自带工具"></a> JDK 自带工具</h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>jps</td>
+<td>查看 java 进程概述</td>
+</tr>
+<tr>
+<td>jconsole</td>
+<td>图形化查看内存线程 VM 参数等信息</td>
+</tr>
+<tr>
+<td>jstat</td>
+<td>查看内存使用状况</td>
+</tr>
+<tr>
+<td>jstack</td>
+<td>分析线程</td>
+</tr>
+<tr>
+<td>jmap</td>
+<td>查看内存信息或 dump 下内存详情</td>
+</tr>
+<tr>
+<td>jvisualvm</td>
+<td>图形化工具，功能在 jconsole 之上</td>
+</tr>
+</tbody>
+</table>
+<h3 id="第三方工具"><a class="markdownIt-Anchor" href="#第三方工具"></a> 第三方工具</h3>
+<p>Arthas，官网 <a href="https://arthas.aliyun.com" target="_blank" rel="noopener">https://arthas.aliyun.com</a>，功能强大，常用命令：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dump</td>
+<td>将已加载的字节码文件保存到特定的目录中</td>
+</tr>
+<tr>
+<td>classloader</td>
+<td>获取类加载器的信息</td>
+</tr>
+<tr>
+<td>monitor</td>
+<td>监控指定类种方法的执行情况</td>
+</tr>
+<tr>
+<td>watch</td>
+<td>观察指定方法的调用情况</td>
+</tr>
+<tr>
+<td>trace</td>
+<td>对方法内部调用路径进行追踪，并输出方法路径上每个节点上耗时</td>
+</tr>
+<tr>
+<td>stack</td>
+<td>输出当前方法被调用的路径</td>
+</tr>
+<tr>
+<td>tt</td>
+<td>记录指定方法每次调用的入参和返回的信息</td>
+</tr>
+<tr>
+<td>options</td>
+<td>全局开关</td>
+</tr>
+<tr>
+<td>profiler</td>
+<td>生成火焰图</td>
+</tr>
+</tbody>
+</table>
 <h2 id="性能问题排查思路"><a class="markdownIt-Anchor" href="#性能问题排查思路"></a> 性能问题排查思路</h2>
 <ol>
 <li>设计调优：一个良好的系统设计可以规避很多钱在的性能问题。必须熟悉常用的软件设计方法、设计模式、基本性能组件和常用优化思想。</li>
@@ -280,7 +364,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#排查业务问题"><span class="toc-number">1.</span> <span class="toc-text"> 排查业务问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线上应用-cpu-占用过高"><span class="toc-number">2.</span> <span class="toc-text"> 线上应用 CPU 占用过高</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线上应用内存溢出"><span class="toc-number">3.</span> <span class="toc-text"> 线上应用内存溢出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#性能问题排查思路"><span class="toc-number">4.</span> <span class="toc-text"> 性能问题排查思路</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#排查业务问题"><span class="toc-number">1.</span> <span class="toc-text"> 排查业务问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线上应用-cpu-占用过高"><span class="toc-number">2.</span> <span class="toc-text"> 线上应用 CPU 占用过高</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线上应用内存溢出"><span class="toc-number">3.</span> <span class="toc-text"> 线上应用内存溢出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工具"><span class="toc-number">4.</span> <span class="toc-text"> 工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jdk-自带工具"><span class="toc-number">4.1.</span> <span class="toc-text"> JDK 自带工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三方工具"><span class="toc-number">4.2.</span> <span class="toc-text"> 第三方工具</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#性能问题排查思路"><span class="toc-number">5.</span> <span class="toc-text"> 性能问题排查思路</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -339,7 +423,7 @@
 	}
 </script>
 <script async src="//cdn.jsdelivr.net/npm/busuanzi@2.3.0"></script>
-<script></script><script src="/./main.daba94.js"></script><script>!function(){var e,t;e="/slider.2611f7.js",t=document.createElement("script"),document.getElementsByTagName("body")[0].appendChild(t),t.setAttribute("src",e)}()</script>
+<script></script><script src="/./main.1488c6.js"></script><script>!function(){var e,t;e="/slider.2611f7.js",t=document.createElement("script"),document.getElementsByTagName("body")[0].appendChild(t),t.setAttribute("src",e)}()</script>
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
   <div class="tools-nav header-menu">
     <ul style="width: 70%">
@@ -371,6 +455,12 @@
               </li>
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">源码阅读</a>
+              </li>
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">折腾</a>
+              </li>
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
             <div class="clearfix"></div>
           </ul>
